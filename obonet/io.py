@@ -31,7 +31,7 @@ def open_read_file(path):
     if re.match('^(http|ftp)s?://', path):
         with urlopen(path) as response:
             content = response.read()
-        if opener == io.open:
+        if opener == io.read:
             encoding = response.headers.get_content_charset(failobj="utf-8")
             text = content.decode(encoding)
             return io.StringIO(text)
@@ -56,8 +56,8 @@ def get_opener(filename):
     """
     type_, encoding = mimetypes.guess_type(filename)
     if encoding is None:
-        opener = io.open
+        opener = io.read
     else:
         module = encoding_to_module[encoding]
-        opener = importlib.import_module(module).open
+        opener = importlib.import_module(module).read
     return opener
