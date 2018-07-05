@@ -3,7 +3,7 @@ import re
 
 import networkx
 
-from .io import open_read_file
+from .io_read import open_read_file
 
 
 def read_obo(path_or_file):
