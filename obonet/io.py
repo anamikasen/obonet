@@ -3,7 +3,8 @@ import io
 import mimetypes
 import pathlib
 import re
-from urllib.request import urlopen
+from urllib2 import urlopen
+
 
 
 def open_read_file(path):
