@@ -15,7 +15,7 @@ version = pattern.search(text).group(1)
 # long_description
 readme_path = directory.joinpath('README.md')
 with readme_path.open() as read_file:
-    long_description = read_file.read()
+    long_description = ''
 
 setuptools.setup(
     name='obonet',
